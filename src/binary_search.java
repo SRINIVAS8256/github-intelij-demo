@@ -1,25 +1,22 @@
 public class binary_search {
     public static void main(String[] args) {
-        int[] arr={1,2,3,4,5,6,7,9};
-        System.out.println("at index of "+search(arr,4)+" = "+arr[search(arr,4)]);
+        int[] arr={1,2,3,34,56};
+        System.out.println(search(arr,56));
     }
     static int search(int[] arr,int target){
-        int i=0;
-        int j=arr.length-1;
-        int start=arr[i];
-        int end=arr[j];
-        while(start <end){
-            start=arr[i];
-            end=arr[j];
-            if(arr[i]==target){
-                return i;
+        int start=0;
+        int end= arr.length-1;
+        while(start<=end){
+            int mid;
+            mid=start+(end-start)/2;
+            if(target>arr[mid]){
+                start=mid+1;
+            }else if(target<arr[mid]){
+                end=mid-1;
+            }else{
+                return mid;
             }
-            if(arr[j]==target){
-                return j;
-            }
-            i++;
-            j--;
         }
-        return -1;
+return -1;
     }
 }
